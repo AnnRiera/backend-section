@@ -19,6 +19,6 @@ const IdeaSchema = new Schema({
     ]
 });
 
-IdeaSchema.plugin(requir("mongoose-autopopulate"));
+IdeaSchema.plugin(require("mongoose-autopopulate"));
 
 module.exports = mongoose.model("idea", IdeaSchema);

@@ -31,5 +31,8 @@
     "mongoose": "^5.9.20",
     "mongoose-autopopulate": "^0.12.2",
     "swagger-ui-express": "^4.1.4"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
   }
 }
