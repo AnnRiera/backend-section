@@ -3,7 +3,7 @@ const {Schema} = mongoose;
 
 const IdeaSchema = new Schema({
     idea: {type: String, required: true},
-    descriptio: { type: String},
+    description: { type: String},
     upvotes: [{ type: Boolean}],
     downvotes: [{ type: Boolean }],
     author: { 
