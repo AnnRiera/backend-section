@@ -4,7 +4,7 @@ let _comment = null;
 
 class CommentRepository extends BaseRepository {
     constructor({ Comment }) {
-        super(Idea);
+        super(Comment);
         _comment = Comment;
     }
 }

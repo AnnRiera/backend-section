@@ -9,7 +9,7 @@ class CommentService extends BaseService {
         _ideaRepository = IdeaRepository;
     }
 
-    async getUserIdeaComments(ideaId) {
+    async getIdeaComments(ideaId) {
         if (!ideaId) {
             const error = new Error();
             error.status = 404;
