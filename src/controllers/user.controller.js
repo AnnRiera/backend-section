@@ -1,7 +1,7 @@
 let _userService = null;
 class UserController {
     constructor({ UserService }) {
-        _userService = UserService; //Sin el this es un repo privado.
+        _userService = UserService;
     }
 
     async get(req, res) {

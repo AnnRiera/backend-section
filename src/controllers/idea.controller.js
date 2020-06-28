@@ -1,55 +1,55 @@
-let _ideaservice = null;
-
+let _ideaService = null;
 class IdeaController {
     constructor({ IdeaService }) {
-        _ideaservice = IdeaService; //Sin el this es tipo privado.
+        _ideaService = IdeaService;
     }
 
     async get(req, res) {
         const { ideaId } = req.params;
-        const idea = await _ideaservice.get(ideaId);
+        const idea = await _ideaService.get(ideaId);
         return res.send(idea);
     }
 
     async getAll(req, res) {
-        const ideas = await _ideaservice.getAll();
+        const { pageSize, pageNum } = req.query;
+        const ideas = await _ideaService.getAll(pageSize, pageNum);
         return res.send(ideas);
     }
 
-    async create(req, res){
-        const {body} = req;
-        const createdIdea = await _ideaservice.create(body);
+    async create(req, res) {
+        const { body } = req;
+        const createdIdea = await _ideaService.create(body);
         return res.status(201).send(createdIdea);
     }
 
     async update(req, res) {
         const { body } = req;
-        const ideaId = req.params;
-        const updatedIdea = await _ideaservice.update(ideaId, body);
+        const { ideaId } = req.params;
+        const updatedIdea = await _ideaService.update(ideaId, body);
         return res.send(updatedIdea);
     }
 
     async delete(req, res) {
         const { ideaId } = req.params;
-        const deletedIdea = await _ideaservice.delete(ideaId);
+        const deletedIdea = await _ideaService.delete(ideaId);
         return res.send(deletedIdea);
     }
 
-    async getUserIdeas(req, res){
+    async getUserIdeas(req, res) {
         const { userId } = req.params;
-        const ideas = await _ideaservice.getUserIdeas(userId);
+        const ideas = await _ideaService.getUserIdeas(userId);
         return res.send(ideas);
     }
 
-    async upvoteIdea(req, res){
+    async upvoteIdea(req, res) {
         const { ideaId } = req.params;
-        const idea = await _ideaservice.upvoteIdea(ideaId);
+        const idea = await _ideaService.upvoteIdea(ideaId);
         return res.send(idea);
     }
 
     async downvoteIdea(req, res) {
         const { ideaId } = req.params;
-        const idea = await _ideaservice.downvoteIdea(ideaId);
+        const idea = await _ideaService.downvoteIdea(ideaId);
         return res.send(idea);
     }
 }
